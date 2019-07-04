@@ -80,6 +80,11 @@ const styles = StyleSheet.create({
         alignContent: 'center',
         justifyContent: 'center',
         textAlign: 'center'
+    },
+    buttonDisabled: {
+        backgroundColor: '#fff',
+        marginTop: 50,
+        width: 500,
     }
 
 })
@@ -109,6 +114,24 @@ export default class LoanEntry extends Component {
     // console.log(input)
   }
 
+  changeLoanTerm = (input) => {
+      this.setState({
+          loanTerm: input
+      })
+  }
+
+  changeTimeUnit = (input) => {
+      this.setState({
+          timeUnit: input
+      })
+  }
+
+  changeInterest = (input) => {
+      this.setState({
+          interest: input
+      })
+  }
+
   render() {
     return (
         <View style={styles.fullScreen}>
@@ -121,13 +144,14 @@ export default class LoanEntry extends Component {
             <Amount amountEntered={this.state.amount} change={this.changeAmount}></Amount>
 
             <Text style={styles.title}>Loan Term:</Text>
-            <LoanTerm></LoanTerm>
+            <LoanTerm lengthEntered={this.state} change={this.changeLoanTerm} changeTime={this.changeTimeUnit}></LoanTerm>
 
             <Text style={styles.title}>Interest Rate:</Text>
-            <InterestRate></InterestRate>
+            <InterestRate interestEntered={this.state.interest} changeInterest={this.changeInterest}></InterestRate>
 
-            <Button
+            {/* <Button
               buttonStyle={styles.button}
+            //   loading={true}
               icon={
                 <Icon
                   name="arrow-right"
@@ -135,7 +159,31 @@ export default class LoanEntry extends Component {
                   color="white"
                 />}
                 title="Calculate"
-            />
+            /> */}
+
+            {this.state.amount > 0 ? 
+                <Button
+                   buttonStyle={styles.button}
+            //   loading={true}
+                 icon={
+                 <Icon
+                   name="arrow-right"
+                   size={15}
+                   color="white"
+                 />}
+                 title="Calculate"
+                /> : 
+                <Button
+                    buttonStyle={styles.buttonDisabled}
+                    disabled={true}
+                    icon={
+                    <Icon
+                        name="arrow-right"
+                        size={15}
+                        color="white"
+                />}
+                title="Enter Loan Info to Calculate"
+            />}
 
             <View style={styles.ad}>
                 <Text style={styles.adText}>ADS ADS ADS ADS ADS</Text>

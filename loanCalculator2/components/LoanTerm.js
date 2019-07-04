@@ -2,14 +2,18 @@ import React from 'react'
 import { StyleSheet, View, Picker, TextInput } from 'react-native'
 import { Text, Input } from 'react-native-elements'
 
-const LoanTerm = () => {
+const LoanTerm = (props) => {
+    const { lengthEntered, change, changeTime } = props
     return(
         <View style={styles.horizontal}>
             <View style={styles.inputView}>
                 <TextInput
                     style={styles.input}
+                    onChangeText={(length) => change(length)}
+                    keyboardType = 'number-pad'
                     placeholder='6'>
                 </TextInput>
+                <Text>{console.log(lengthEntered, "loan term test")}</Text>
             </View>
             <View tyle={styles.pickerView}>
                 <View style={styles.pickerViewLoanTerm}>
@@ -17,7 +21,8 @@ const LoanTerm = () => {
                       selectedValue={this.state.language}
                       style={styles.picker}
                       onValueChange={(itemValue, itemIndex) =>
-                      this.setState({language: itemValue})
+                        changeTime(itemValue)
+                    //   this.setState({language: itemValue})
                     }>
                     <Picker.Item label="Month(s)" value="month" />
                     <Picker.Item label="Year(s)" value="year" />

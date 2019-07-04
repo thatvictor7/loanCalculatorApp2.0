@@ -4,15 +4,19 @@ import { View, StyleSheet, TextInput, Text } from 'react-native'
 
 state = { language: true };
 
-const InterestRate = () => {
+const InterestRate = (props) => {
+    const { interestEntered, changeInterest } = props
     return(
         <View style={styles.horizontal}>
             <View style={styles.inputView}>
                 <TextInput
                     style={styles.input}
-                    placeholder='9.3'>
-
+                    onChangeText={(apr) => changeInterest(apr)}
+                    placeholder='9.3'
+                    keyboardType = 'number-pad'
+                >
                 </TextInput>
+                <Text>{console.log(interestEntered, "interest test")}</Text>
             </View>
             <View style={styles.picker}>
                 <Text style={{color: 'white', textAlign: 'center', justifyContent: 'center', alignItems: 'center', fontWeight: 'bold'}}>%</Text>
