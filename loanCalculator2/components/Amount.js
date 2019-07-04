@@ -2,14 +2,19 @@ import React from 'react'
 import { StyleSheet, View, TextInput } from 'react-native'
 import { Text, Input } from 'react-native-elements'
 
-const Amount = () => {
+const Amount = (props) => {
+    const {amountEntered, change} = props
     return(
         // <View style={styles.inputView}>
             <View style={styles.inputView}>
                 <TextInput
                     style={styles.input}
+                    onChangeText={(amountEntered) => change(amountEntered)}
+                    keyboardType='numeric'
+                    // value={amountEntered}
                     placeholder='$5,000'>
                 </TextInput>
+                <Text>{console.log(amountEntered, "testss")}</Text>
             </View>
     )
     {/* </View> */}

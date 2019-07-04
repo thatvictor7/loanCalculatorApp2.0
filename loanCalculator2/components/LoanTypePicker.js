@@ -21,7 +21,7 @@ const LoanTypePicker = () => {
         </View>
     )
 }
-console.log(this.state)
+// console.log(this.state)
 
 const styles = StyleSheet.create({
     loanTitle: {
