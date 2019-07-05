@@ -1,48 +1,3 @@
-// import React from 'react'
-// import { View, StyleSheet } from 'react-native'
-// import { Button, Text } from 'react-native-elements'
-// import Icon from 'react-native-vector-icons/FontAwesome';
-// import HeaderTitle from '../components/Header.js'
-// import LoanTypePicker from '../components/LoanTypePicker.js'
-// import Amount from '../components/Amount.js'
-// import LoanTerm from '../components/LoanTerm.js'
-// import InterestRate from '../components/InterestRate.js'
-
-// export default function LoanEntry() {
-//     return(
-//         <View style={styles.fullScreen}>
-//             <HeaderTitle></HeaderTitle>
-
-//             <Text style={styles.screenTitle}>Enter Loan Info:</Text>
-//             <LoanTypePicker></LoanTypePicker>
-
-//             <Text style={styles.title}>Amount:</Text>
-//             <Amount></Amount>
-
-//             <Text style={styles.title}>Loan Term:</Text>
-//             <LoanTerm></LoanTerm>
-
-//             <Text style={styles.title}>Interest Rate:</Text>
-//             <InterestRate></InterestRate>
-
-//             <Button
-//               buttonStyle={styles.button}
-//               icon={
-//                 <Icon
-//                   name="arrow-right"
-//                   size={15}
-//                   color="white"
-//                 />}
-//                 title="Calculate"
-//             />
-
-//             <View style={styles.ad}>
-//                 <Text style={styles.adText}>ADS ADS ADS ADS ADS</Text>
-//             </View>
-//         </View>
-//     )
-// }
-
 const styles = StyleSheet.create({
     fullScreen: {
         alignItems: 'center',
@@ -155,11 +110,11 @@ export default class LoanEntry extends React.Component {
             <Text style={styles.title}>Interest Rate:</Text>
             <InterestRate interestEntered={this.state.interest} changeInterest={this.changeInterest}></InterestRate>
 
-            {this.state.amount > 0 && this.state.interest > 0 && this.state.loanTerm > 0? 
+            {this.state.amount > 0 && this.state.interest > 0 && this.state.loanTerm > 0 && this.state.timeUnit ? 
                 <Button
                     buttonStyle={styles.button}
                     onPress={() => navigate('Results', {
-                        test: this.state
+                        results: this.state
                     })}
                     icon={
                     <Icon

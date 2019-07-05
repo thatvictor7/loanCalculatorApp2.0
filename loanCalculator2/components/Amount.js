@@ -14,7 +14,7 @@ const Amount = (props) => {
                     // value={amountEntered}
                     placeholder='$5,000'>
                 </TextInput>
-                <Text>{console.log(amountEntered, "amount test")}</Text>
+                {/* <Text>{console.log(amountEntered, "amount test")}</Text> */}
             </View>
     )
     {/* </View> */}

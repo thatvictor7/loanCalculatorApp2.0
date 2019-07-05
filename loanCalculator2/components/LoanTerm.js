@@ -13,7 +13,7 @@ const LoanTerm = (props) => {
                     keyboardType = 'number-pad'
                     placeholder='6'>
                 </TextInput>
-                <Text>{console.log(lengthEntered, "loan term test")}</Text>
+                {/* <Text>{console.log(lengthEntered, "loan term test")}</Text> */}
             </View>
             <View tyle={styles.pickerView}>
                 <View style={styles.pickerViewLoanTerm}>
@@ -24,8 +24,9 @@ const LoanTerm = (props) => {
                         changeTime(itemValue)
                     //   this.setState({language: itemValue})
                     }>
-                    <Picker.Item label="Month(s)" value="month" />
-                    <Picker.Item label="Year(s)" value="year" />
+                    {/* <Picker.Item color='gray' label="Length" /> */}
+                    <Picker.Item label="Month(s)" value="months" />
+                    <Picker.Item label="Year(s)" value="years" />
                   </Picker>
                 </View>
             </View>

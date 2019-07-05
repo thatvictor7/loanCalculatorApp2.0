@@ -6,6 +6,7 @@ import { createStackNavigator, createAppContainer } from 'react-navigation'
 import Splash from './screens/splash.js'
 import LoanEntry from './screens/LoanEntry.js'
 import Results from './screens/Results.js'
+// import Summary from './components/Summary.js/index.js'
 
 // export default function App() {
 //   return (
@@ -18,7 +19,8 @@ import Results from './screens/Results.js'
 const NavigationApp = createStackNavigator({
   Main: { screen: Splash },
   Loan: { screen: LoanEntry },
-  Results: { screen: Results}
+  Results: { screen: Results },
+  // Summary: { screen: Summary }
   // Main: () => <Splash></Splash>,
 },{
   headerMode: "none"

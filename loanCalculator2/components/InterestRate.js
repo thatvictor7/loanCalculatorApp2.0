@@ -16,7 +16,7 @@ const InterestRate = (props) => {
                     keyboardType = 'number-pad'
                 >
                 </TextInput>
-                <Text>{console.log(interestEntered, "interest test")}</Text>
+                {/* <Text>{console.log(interestEntered, "interest test")}</Text> */}
             </View>
             <View style={styles.picker}>
                 <Text style={{color: 'white', textAlign: 'center', justifyContent: 'center', alignItems: 'center', fontWeight: 'bold'}}>%</Text>
