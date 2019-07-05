@@ -101,7 +101,12 @@ import LoanTerm from '../components/LoanTerm.js'
 import InterestRate from '../components/InterestRate.js'
 
 
-export default class LoanEntry extends Component {
+export default class LoanEntry extends React.Component {
+
+    // static navigationOptions = {
+    //     title: 'welcomw'
+    // }
+
   constructor(props) {
     super(props);
     this.state = { amount: 0 };
@@ -133,6 +138,7 @@ export default class LoanEntry extends Component {
   }
 
   render() {
+    const { navigate } = this.props.navigation
     return (
         <View style={styles.fullScreen}>
             <HeaderTitle></HeaderTitle>
@@ -149,40 +155,31 @@ export default class LoanEntry extends Component {
             <Text style={styles.title}>Interest Rate:</Text>
             <InterestRate interestEntered={this.state.interest} changeInterest={this.changeInterest}></InterestRate>
 
-            {/* <Button
-              buttonStyle={styles.button}
-            //   loading={true}
-              icon={
-                <Icon
-                  name="arrow-right"
-                  size={15}
-                  color="white"
-                />}
-                title="Calculate"
-            /> */}
-
-            {this.state.amount > 0 ? 
+            {this.state.amount > 0 && this.state.interest > 0 && this.state.loanTerm > 0? 
                 <Button
-                   buttonStyle={styles.button}
-            //   loading={true}
-                 icon={
-                 <Icon
-                   name="arrow-right"
-                   size={15}
-                   color="white"
-                 />}
-                 title="Calculate"
-                /> : 
-                <Button
-                    buttonStyle={styles.buttonDisabled}
-                    disabled={true}
+                    buttonStyle={styles.button}
+                    onPress={() => navigate('Results', {
+                        test: this.state
+                    })}
                     icon={
                     <Icon
                         name="arrow-right"
                         size={15}
                         color="white"
+                    />}
+                    title="Calculate"
+                /> : 
+                <Button
+                    disabledStyle={styles.buttonDisabled}
+                    disabled={true}
+                    color='red'
+                    icon={
+                    <Icon
+                        name="arrow-up"
+                        size={15}
+                        color="red"
                 />}
-                title="Enter Loan Info to Calculate"
+                title=" Enter Loan Info to Calculate"
             />}
 
             <View style={styles.ad}>
@@ -192,5 +189,3 @@ export default class LoanEntry extends Component {
     );
   }
 }
-// changeAmount(4)
-// console.log(this.state, 'test')
