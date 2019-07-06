@@ -5,16 +5,14 @@ import { Text, Input } from 'react-native-elements'
 const Amount = (props) => {
     const {amountEntered, change} = props
     return(
-        // <View style={styles.inputView}>
             <View style={styles.inputView}>
                 <TextInput
                     style={styles.input}
+                    // selectionColor={color: 'red'}
                     onChangeText={(amountEntered) => change(amountEntered)}
                     keyboardType='numeric'
-                    // value={amountEntered}
                     placeholder='$5,000'>
                 </TextInput>
-                {/* <Text>{console.log(amountEntered, "amount test")}</Text> */}
             </View>
     )
     {/* </View> */}

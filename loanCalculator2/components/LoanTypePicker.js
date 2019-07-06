@@ -2,18 +2,18 @@ import React from 'react'
 import { View, StyleSheet, Picker } from 'react-native'
 // import { Picker } from 'react-native-elements'
 
-const LoanTypePicker = () => {
+const LoanTypePicker = (props) => {
+    const { change, loanState } = props
     return(
         <View style={styles.pickerView}>
             <View style={styles.pickerViewLoanType}>
                 <Picker
-                    selectedValue={this.state.language}
+                    selectedValue={loanState.loanType}
                     style={styles.picker}
                     onValueChange={(itemValue, itemIndex) =>
-                        this.setState({language: itemValue
-                        // (e) => this({setS})
-                        })
-                    }>
+                        change(itemValue)
+                    }
+                    >
                     <Picker.Item label="Personal Loan" value="personal" />
                     <Picker.Item label="Auto Loan" value="auto" />
                 </Picker>

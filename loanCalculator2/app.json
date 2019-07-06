@@ -1,19 +1,22 @@
 {
   "expo": {
-    "name": "Loan Amortization",
+    "name": "Your Loan Calculator",
     "slug": "loanCalculator2",
     "privacy": "public",
     "sdkVersion": "33.0.0",
-    "platforms": [
-      "ios",
-      "android",
-      "web"
-    ],
+    // "platforms": [
+    //   "ios",
+    //   "android",
+    //   "web"
+    // ],
+    "android": {
+      "package": "com.victory.yourloancalculator"
+    },
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/YourLoanAndroidLogo.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/YourLoanInAppLogo1.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },

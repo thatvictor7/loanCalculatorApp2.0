@@ -40,6 +40,11 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         marginTop: 50,
         width: 500,
+    },
+    info: {
+        flex: 1,
+        justifyContent: 'flex-start',
+        alignItems: 'center'
     }
 
 })
@@ -49,6 +54,8 @@ import { StyleSheet, View } from 'react-native';
 import { Button, Text } from 'react-native-elements'
 import Icon from 'react-native-vector-icons/FontAwesome';
 
+import { AdMobBanner } from 'expo-ads-admob'
+
 import HeaderTitle from '../components/Header.js'
 import LoanTypePicker from '../components/LoanTypePicker.js'
 import Amount from '../components/Amount.js'
@@ -57,10 +64,6 @@ import InterestRate from '../components/InterestRate.js'
 
 
 export default class LoanEntry extends React.Component {
-
-    // static navigationOptions = {
-    //     title: 'welcomw'
-    // }
 
   constructor(props) {
     super(props);
@@ -92,54 +95,69 @@ export default class LoanEntry extends React.Component {
       })
   }
 
+  changeLoanType = (input) => {
+      this.setState({
+          loanType: input
+      })
+  }
+
+  bannerError = (e) => {
+    // alert(e)
+  }
+
   render() {
     const { navigate } = this.props.navigation
     return (
         <View style={styles.fullScreen}>
-            <HeaderTitle></HeaderTitle>
+            <View style={styles.info}>
+                <HeaderTitle></HeaderTitle>
 
-            <Text style={styles.screenTitle}>Enter Loan Info:</Text>
-            <LoanTypePicker></LoanTypePicker>
+                <Text style={styles.screenTitle}>Enter Loan Info:</Text>
+                <LoanTypePicker change={this.changeLoanType} loanState={this.state}></LoanTypePicker>
 
-            <Text style={styles.title}>Amount:</Text>
-            <Amount amountEntered={this.state.amount} change={this.changeAmount}></Amount>
+                <Text style={styles.title}>Amount:</Text>
+                <Amount amountEntered={this.state.amount} change={this.changeAmount}></Amount>
 
-            <Text style={styles.title}>Loan Term:</Text>
-            <LoanTerm lengthEntered={this.state} change={this.changeLoanTerm} changeTime={this.changeTimeUnit}></LoanTerm>
+                <Text style={styles.title}>Loan Term:</Text>
+                <LoanTerm lengthEntered={this.state} change={this.changeLoanTerm} changeTime={this.changeTimeUnit}></LoanTerm>
 
-            <Text style={styles.title}>Interest Rate:</Text>
-            <InterestRate interestEntered={this.state.interest} changeInterest={this.changeInterest}></InterestRate>
+                <Text style={styles.title}>Interest Rate:</Text>
+                <InterestRate interestEntered={this.state.interest} changeInterest={this.changeInterest}></InterestRate>
 
-            {this.state.amount > 0 && this.state.interest > 0 && this.state.loanTerm > 0 && this.state.timeUnit ? 
-                <Button
-                    buttonStyle={styles.button}
-                    onPress={() => navigate('Results', {
-                        results: this.state
-                    })}
-                    icon={
-                    <Icon
-                        name="arrow-right"
-                        size={15}
-                        color="white"
+                {this.state.amount > 0 && this.state.interest > 0 && this.state.loanTerm > 0 && this.state.timeUnit ? 
+                    <Button
+                        buttonStyle={styles.button}
+                        onPress={() => navigate('Results', {
+                            results: this.state
+                        })}
+                        icon={
+                        <Icon
+                            name="arrow-right"
+                            size={15}
+                            color="white"
+                        />}
+                        title="Calculate"
+                    /> : 
+                    <Button
+                        disabledStyle={styles.buttonDisabled}
+                        disabled={true}
+                        color='red'
+                        icon={
+                        <Icon
+                            name="arrow-up"
+                            size={15}
+                            color="red"
                     />}
-                    title="Calculate"
-                /> : 
-                <Button
-                    disabledStyle={styles.buttonDisabled}
-                    disabled={true}
-                    color='red'
-                    icon={
-                    <Icon
-                        name="arrow-up"
-                        size={15}
-                        color="red"
+                    title=" Enter Loan Info to Calculate"
                 />}
-                title=" Enter Loan Info to Calculate"
-            />}
-
-            <View style={styles.ad}>
-                <Text style={styles.adText}>ADS ADS ADS ADS ADS</Text>
             </View>
+                <AdMobBanner
+                    bannerSize="fullBanner"
+                    adUnitID = "ca-app-pub-6007010679552142/9305993930" // Test ID, Replace with your-admob-unit-id
+                    testDeviceID="EMULATOR"
+                    onDidFailToReceiveAdWithError={(e) => this.bannerError(e)} 
+                    // onDidFailToReceiveAdWithError={this.bannerError} 
+                    />
         </View>
     );
   }

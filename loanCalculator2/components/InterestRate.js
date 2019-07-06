@@ -19,7 +19,7 @@ const InterestRate = (props) => {
                 {/* <Text>{console.log(interestEntered, "interest test")}</Text> */}
             </View>
             <View style={styles.picker}>
-                <Text style={{color: 'white', textAlign: 'center', justifyContent: 'center', alignItems: 'center', fontWeight: 'bold'}}>%</Text>
+                <Text style={styles.percentage}>%</Text>
             </View>
         </View>
     )
@@ -58,6 +58,13 @@ const styles = StyleSheet.create({
             flexDirection: 'row',
             height: 50
         },
+        percentage: {
+            color: 'white',
+            textAlign: 'center',
+            justifyContent: 'center',
+            alignItems: 'center',
+            fontWeight: 'bold'
+        }
 })
 
 export default InterestRate

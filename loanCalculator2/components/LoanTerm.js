@@ -13,18 +13,16 @@ const LoanTerm = (props) => {
                     keyboardType = 'number-pad'
                     placeholder='6'>
                 </TextInput>
-                {/* <Text>{console.log(lengthEntered, "loan term test")}</Text> */}
             </View>
             <View tyle={styles.pickerView}>
                 <View style={styles.pickerViewLoanTerm}>
                     <Picker
-                      selectedValue={this.state.language}
+                      selectedValue={lengthEntered.timeUnit}
                       style={styles.picker}
                       onValueChange={(itemValue, itemIndex) =>
                         changeTime(itemValue)
-                    //   this.setState({language: itemValue})
                     }>
-                    {/* <Picker.Item color='gray' label="Length" /> */}
+                    <Picker.Item color='gray' label="Length" />
                     <Picker.Item label="Month(s)" value="months" />
                     <Picker.Item label="Year(s)" value="years" />
                   </Picker>
@@ -39,7 +37,6 @@ const styles = StyleSheet.create({
                backgroundColor: "white",
                width: 205,
                borderRadius: 50,
-            //    height: 40
            },
            pickerViewLoanTerm: {
                marginLeft: 15,
@@ -51,9 +48,6 @@ const styles = StyleSheet.create({
                width: 140
            },
            input: {
-               // alignItems: 'center',
-               // width: 260,
-               // marginHorizontal: 50,
                borderRadius: 50,
                textAlign: 'center',
                alignItems: 'center',
@@ -67,14 +61,9 @@ const styles = StyleSheet.create({
            horizontal: {
                display: 'flex',
                flexDirection: 'row'
-               // flex: 1,
-               // flexDirection: 'row',
-               // justifyContent: 'space-around'
-               // height: 45
            },
            picker: {
                color: 'white',
-            //    height: 40
            }
 })
 
