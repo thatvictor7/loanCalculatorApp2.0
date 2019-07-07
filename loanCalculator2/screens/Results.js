@@ -114,9 +114,9 @@ export default class Results extends React.Component{
                                 <Text style={styles.item} key={payment[0]}>${payment[3]}</Text>
                              </View>
                     })}</View>
-                    <View style={styles.ad}>
+                    {/* <View style={styles.ad}>
 
-                    </View>
+                    </View> */}
                 </ScrollView>
             </View>
         )
