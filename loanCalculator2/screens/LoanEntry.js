@@ -1,54 +1,3 @@
-const styles = StyleSheet.create({
-    fullScreen: {
-        alignItems: 'center',
-        flex: 1,
-        justifyContent: 'space-between',
-        // marginTop: 10,
-        // marginBottom: 20,
-        backgroundColor: '#000E23'
-    },
-    screenTitle: {
-        color: 'white',
-        fontWeight: 'bold',
-        fontSize: 35,
-        marginTop: 5
-    },
-    title: {
-        color: 'white',
-        fontWeight: 'normal',
-        fontSize: 30,
-    },
-    button: {
-        backgroundColor: '#f9002c',
-        marginTop: 50,
-        width: 500,
-    },
-    ad: {
-        width: 350,
-        height: 50,
-        backgroundColor: 'white',
-        alignContent: 'center',
-        justifyContent: 'center',
-        textAlign: 'center'
-    },
-    adText: {
-        alignContent: 'center',
-        justifyContent: 'center',
-        textAlign: 'center'
-    },
-    buttonDisabled: {
-        backgroundColor: '#fff',
-        marginTop: 50,
-        width: 500,
-    },
-    info: {
-        flex: 1,
-        justifyContent: 'flex-start',
-        alignItems: 'center'
-    }
-
-})
-
 import React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Button, Text } from 'react-native-elements'
@@ -162,3 +111,53 @@ export default class LoanEntry extends React.Component {
     );
   }
 }
+const styles = StyleSheet.create({
+    fullScreen: {
+        alignItems: 'center',
+        flex: 1,
+        justifyContent: 'space-between',
+        // marginTop: 10,
+        // marginBottom: 20,
+        backgroundColor: '#000E23'
+    },
+    screenTitle: {
+        color: 'white',
+        fontWeight: 'bold',
+        fontSize: 35,
+        marginTop: 5
+    },
+    title: {
+        color: 'white',
+        fontWeight: 'normal',
+        fontSize: 30,
+    },
+    button: {
+        backgroundColor: '#f9002c',
+        marginTop: 50,
+        width: 500,
+    },
+    ad: {
+        width: 350,
+        height: 50,
+        backgroundColor: 'white',
+        alignContent: 'center',
+        justifyContent: 'center',
+        textAlign: 'center'
+    },
+    adText: {
+        alignContent: 'center',
+        justifyContent: 'center',
+        textAlign: 'center'
+    },
+    buttonDisabled: {
+        backgroundColor: '#fff',
+        marginTop: 50,
+        width: 500,
+    },
+    info: {
+        flex: 1,
+        justifyContent: 'flex-start',
+        alignItems: 'center'
+    }
+
+})
